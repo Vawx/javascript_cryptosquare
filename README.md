@@ -23,6 +23,7 @@ Simple web app using javascript to take user input and encrypt is as a "crypto s
 3. he coded message is obtained by reading down the columns going left to right. For example, the message above is coded as:
 
 | Crypto |
+| ---    |
 | drfcu hotoe toreu enyom |    
 | spwrt oopee edcut alrra |    
 | mrhrf seyms eetoy peryo |   
