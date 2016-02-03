@@ -9,20 +9,20 @@ Simple web app using javascript to take user input and encrypt is as a "crypto s
 
 2. The spaces and punctuation are removed from the English text and the characters are written into a square (or rectangle) and the entire message is downcased. For example, the sentence "don't compare yourself to others, compare yourself to the person you were yesterday" is 69 characters long, so it is written into a rectangle with 8 rows and 9 columns.
 
-`dontcompa
-reyoursel
-ftoothers
-compareyo
-urselftot
-hepersony
-ouwereyes
+`dontcompa    
+reyoursel    
+ftoothers    
+compareyo    
+urselftot    
+hepersony    
+ouwereyes    
 terday`
 
 3. he coded message is obtained by reading down the columns going left to right. For example, the message above is coded as:
 
-`drfcu hotoe toreu enyom
-spwrt oopee edcut alrra 
-mrhrf seyms eetoy peryo
+`drfcu hotoe toreu enyom    
+spwrt oopee edcut alrra     
+mrhrf seyms eetoy peryo    
 neals otys`
 
 4. Write a program that, given a block of text, outputs the encoded version of that text.
