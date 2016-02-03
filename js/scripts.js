@@ -51,7 +51,38 @@ String.prototype.crypto = function( ) {
         currentCount += 1;
     }
     
-    return trueCrypto;
+       var boxLayout = Math.round( Math.sqrt( noPunc.length ) / 2 );
+       var cryptoInput = trueCrypto.join( ).noPunc( );
+       
+       var line = "";
+       var wordCount = 0;
+       var lineCount = 0;
+       var result = []
+       for( var i = 0; i < cryptoInput.length; i++ )
+       {
+           if ( cryptoInput[ i ] !== ' ' && cryptoInput[ i ] !== '' )
+           {
+                line += cryptoInput[ i ];
+                wordCount += 1;
+                if( wordCount >= boxLayout )
+                {
+                    wordCount = 0;
+                    lineCount += 1;
+                    if( lineCount === ( boxLayout - 1 ) )
+                    {
+                        result.push( line );
+                        line = "";
+                        lineCount = 0;
+                    }
+                    else
+                    {
+                        line += " ";
+                    }
+                }
+           }
+       }
+       result.push( line );
+       return result;
 }
 
 $(document).ready(function( ) {
@@ -67,36 +98,12 @@ $(document).ready(function( ) {
        reset( );
        
        var userInput = $("#new-crypto").val( ).noPunc( );
-       var boxLayout = Math.round( Math.sqrt( userInput.length ) / 2 );
-       var cryptoInput = userInput.crypto( ).join( ).noPunc( );
+       var cryptoInput = userInput.crypto( );
        
-       var line = "";
-       var wordCount = 0;
-       var lineCount = 0;
        for( var i = 0; i < cryptoInput.length; i++ )
-       {
-           if ( cryptoInput[ i ] !== ' ' && cryptoInput[ i ] !== '' )
-           {
-                line += cryptoInput[ i ];
-                wordCount += 1;
-                if( wordCount >= boxLayout )
-                {
-                    wordCount = 0;
-                    lineCount += 1;
-                    if( lineCount === ( boxLayout - 1 ) )
-                    {
-                        $("ul#phrases").append("<li><span class='crypto' style='font-family:monospace,monospace;'>" + line + "</span></li>" ); 
-                        line = "";
-                        lineCount = 0;
-                    }
-                    else
-                    {
-                        line += " ";
-                    }
-                }
-           }
+       {    
+            $("ul#phrases").append("<li><span class='crypto' style='font-family:monospace,monospace;'>" + cryptoInput[ i ] + "</span></li>" );             
        }
-       $("ul#phrases").append("<li><span class='crypto' style='font-family:monospace,monospace;'>" + line + "</span></li>" ); 
     });
 });
 
